@@ -21,6 +21,7 @@ class PatientController extends Controller
     }
     public function create(Request $request){
         $request->validate([
+            'dosya_no' => 'required|max:255',
             'isim' => 'required|max:255',
             'soyisim' => 'required|max:255',
             'dogum_tarihi' => 'required|date',
@@ -32,7 +33,12 @@ class PatientController extends Controller
             'not' => 'max:255',
             'cinsiyet'=>'required'
         ]);
+        //basic validations
+        if(count(Patient::where('document_no',$request->document_no)->get()) > 0 ){
+            Alert::error('Aynı dosya numarasında kayıt bulunmaktadır', 'Kayıt');
 
+            return redirect()->back()->withInput();
+        }
         if(count(Patient::where('name',$request->isim)->where('surname',$request->soyisim)->where('dob',$request->dogum_tarihi)->get()) > 0 ){
             Alert::error('Aynı isimde soyisimde ve doğum tarihinde başka bir kayıt bulunmaktadır', 'Kayıt');
 
@@ -40,6 +46,7 @@ class PatientController extends Controller
         }
 
         Patient::create([
+            'document_no'=>$request->dosya_no,
             'name'  =>  $request->isim,
             'surname'  =>  $request->soyisim,
             'gender'=>$request->cinsiyet,
@@ -50,6 +57,8 @@ class PatientController extends Controller
             'home_tel'=>$request->ev_tel,
             'allergy_info'=>$request->alerji,
             'notes'=>$request->notlar,
+            'history'=>$request->ozgecmis,
+            'medicines'=>$request->ilaclar,
         ]);
 
         Alert::success('Hasta Başarıyla Kaydedildi !', 'Kayıt');

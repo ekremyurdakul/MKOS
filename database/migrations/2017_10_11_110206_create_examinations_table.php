@@ -33,6 +33,34 @@ class CreateExaminationsTable extends Migration
             $table->string('turgor')->nullable();
             $table->string('tiroid')->nullable();
             $table->string('ates')->nullable();
+
+            $table->string('solunum_sds')->nullable();
+            $table->string('solunum_toraks_ins')->nullable();
+            $table->string('solunum_toraks_palpas')->nullable();
+            $table->string('solunum_perkusyon')->nullable();
+            $table->string('kardiyo_periferik_nabz')->nullable();
+            $table->string('kardiyo_nds')->nullable();
+            $table->string('kardiyo_palpasyon')->nullable();
+            $table->string('kardiyo_oskultasyon')->nullable();
+            $table->string('kardiyo_venuz_dolgunluk')->nullable();
+            $table->string('gastro_inspeksiyon')->nullable();
+            $table->string('gastro_tonsiller')->nullable();
+
+            $table->string('gastro_palpasyon')->nullable();
+            $table->string('gastro_perkusyon')->nullable();
+            $table->string('gastro_oskultasyon')->nullable();
+            $table->string('genito_kuntperk')->nullable();
+            $table->string('genito_ureternoktalar')->nullable();
+            $table->string('genito_suprapubik')->nullable();
+            $table->string('lokomotor_notlar')->nullable();
+            $table->string('noro_ense_sertligi')->nullable();
+            $table->string('noro_kernig')->nullable();
+            $table->string('noro_bruzinski')->nullable();
+            $table->string('noro_lasegue_sag')->nullable();
+            $table->string('noro_lasegue_sol')->nullable();
+            $table->string('noro_femoral_sag')->nullable();
+            $table->string('noro_femoral_sol')->nullable();
+            $table->string('noro_notlar')->nullable();
             $table->string('tedavi')->nullable();
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->timestamps();

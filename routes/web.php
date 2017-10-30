@@ -26,4 +26,7 @@ Route::get('/patients/search', 'PatientController@smartSearch');
 Route::get('/examinations/new', 'ExaminationController@index');
 Route::post('/examinations/new', 'ExaminationController@create');
 
-Route::get('/bloodtests', 'TestController@index');
+Route::get('/documents/new', 'DocumentController@index');
+Route::post('/documents/new', 'DocumentController@create');
+
+Route::get('/test', 'ExaminationController@test');

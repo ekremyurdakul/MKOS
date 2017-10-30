@@ -28,6 +28,12 @@
 
 
                                 <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label for="name">Dosya Numarası: </label>
+                                        <input type="text" class="form-control" id="name" name="dosya_no">
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="name">Ad : </label>
                                         <input type="text" class="form-control" id="name" name="isim">
@@ -74,6 +80,16 @@
                                     <div class="form-group">
                                         <label for="name">Alerji Hikayesi :  </label>
                                         <textarea style="resize: none"  class="form-control" id="allergy" name="alerji">
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Öz/Soy Geçmişi : </label>
+                                        <textarea style="resize: none" class="form-control" id="notes" name="ozgecmis">
+                                        </textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Devamlı Kullandığı İlaçlar : </label>
+                                        <textarea style="resize: none" class="form-control" id="notes" name="ilaclar">
                                         </textarea>
                                     </div>
                                     <div class="form-group">

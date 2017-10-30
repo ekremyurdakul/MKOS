@@ -15,6 +15,7 @@ class PatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('document_no')->unique();
             $table->string('name');
             $table->string('surname');
             $table->string('gender');
@@ -25,6 +26,8 @@ class PatientsTable extends Migration
             $table->string('home_tel')->nullable();
             $table->string('allergy_info')->nullable();
             $table->string('notes')->nullable();
+            $table->string('history')->nullable();
+            $table->string('medicines')->nullable();
             $table->timestamps();
         });
 

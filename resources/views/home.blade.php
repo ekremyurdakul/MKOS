@@ -33,10 +33,10 @@
                                                 <a href="/patients/new" class=" btn btn-primary" style="height: inherit;width: 80%"> Müşteri Ekle</a>
                                             </div>
                                             <div class="col-md-4">
-                                                <button data-toggle="modal" data-target="#myModal" class=" btn btn-primary" style="height: inherit;width: 80%">Muayene Girişi</button>
+                                                <button id="muayene" data-toggle="modal" data-target="#myModal" class=" btn btn-primary" style="height: inherit;width: 80%">Muayene Girişi</button>
                                             </div>
                                             <div class="col-md-4">
-                                                <a href="/bloodtests" class=" btn btn-primary" style="height: inherit;width: 80%"> Tetkik Girişi</a>
+                                                <a id="tetkik" data-toggle="modal" data-target="#myModal" class=" btn btn-primary" style="height: inherit;width: 80%"> Tetkik Girişi</a>
                                             </div>
                                         </div>
 
@@ -53,11 +53,23 @@
 
         <script>
             $(document).ready(function () {
+                var toggle = '';
+                $('#muayene').click(function(){
+                    toggle = 'M';
+                });
+
+                $('#tetkik').click(function(){
+                    toggle = 'T';
+                });
 
                 $('#autocomplete').autocomplete({
                     serviceUrl: '/patients/search',
                     onSelect: function (suggestion) {
-                        window.location.href = "{{ \Illuminate\Support\Facades\URL::to('/') }}" + "/examinations/new?patient_id=" + suggestion.data;
+                        if(toggle === 'M'){
+                            window.location.href = "{{ \Illuminate\Support\Facades\URL::to('/') }}" + "/examinations/new?patient_id=" + suggestion.data;
+                        }else{
+                            window.location.href = "{{ \Illuminate\Support\Facades\URL::to('/') }}" + "/documents/new?patient_id=" + suggestion.data;
+                        }
                     }
                 });
 
