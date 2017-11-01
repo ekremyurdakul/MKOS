@@ -30,3 +30,4 @@ Route::get('/documents/new', 'DocumentController@index');
 Route::post('/documents/new', 'DocumentController@create');
 
 Route::get('/test', 'ExaminationController@test');
+Route::get('/retrieveData/{identity}/{birthYear}/{opNo}', 'ExaminationController@retrieveData');

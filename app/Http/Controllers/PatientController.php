@@ -21,7 +21,7 @@ class PatientController extends Controller
     }
     public function create(Request $request){
         $request->validate([
-            'dosya_no' => 'required|max:255',
+            'dosya_no' => 'required|unique:patients,document_no|max:255',
             'isim' => 'required|max:255',
             'soyisim' => 'required|max:255',
             'dogum_tarihi' => 'required|date',

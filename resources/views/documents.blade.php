@@ -87,9 +87,11 @@
                                     </div>
                                 </div>
 
-                                <div class="row" style="margin: 5px;padding-top: 15px; border: thin; border-color: #3d6983; font-size: 12pt">
+                                <div id="testSec" class="row" style="display:none; margin: 5px;padding-top: 15px; border: thin; border-color: #3d6983; font-size: 12pt">
                                     <strong style="font-size: 14pt; color: #222222">Testler</strong>
                                     <hr>
+                                    <div data-toggle="modal" data-target="#retrieveTestData"><a class="btn btn-primary">
+                                            Devlet Tetkik Sorgulama</a></div>
                                     <table id="table_tests" style="margin-top: 15px" class="table table-striped ">
                                         <thead>
                                         <tr>
@@ -101,9 +103,9 @@
                                         <tbody id="items_table">
                                         </tbody>
                                     </table>
-                                    <a style="margin: 0 5px 0 0" onclick="addCut()" class="btn btn-primary"> Test Ekle
+                                    <a style="margin: 0 5px 0 0" onclick="addTest('','')" class="btn btn-primary"> Test Ekle
                                     </a>
-                                    <a style="margin: 0 0 0 0" onclick="removeCut()" class="btn btn-danger"> Test Çıkar
+                                    <a style="margin: 0 0 0 0" onclick="removeTest()" class="btn btn-danger"> Test Çıkar
                                     </a>
                                 </div>
 
@@ -129,23 +131,34 @@
 
                     <script src="{{ asset('js/autocomplete.js') }}"></script>
                     <script>
-                        function removeCut() {
+
+                        $( "#dokuman_tip" ).change(function() {
+
+                            if($( this ).val() == 2){
+                                $( "#testSec" ).show( "slow", function() {
+                                    // Animation complete.
+                                });
+                            }else{
+                                $( "#testSec" ).hide();
+                            }
+
+                        });
+
+                        function removeTest() {
                             var table = document.getElementById("table_tests");
                             if (table.rows.length > 1) {
                                 document.getElementById("table_tests").deleteRow(table.rows.length - 1);
                             }
                         }
-                        function addCut() {
-
+                        function addTest(name, result) {
                             var table = document.getElementById('table_tests');
                             var length = table.rows.length;
                             var row = table.insertRow();
                             var cell1 = row.insertCell(0);
                             var cell2 = row.insertCell(1);
 
-                            cell1.innerHTML = "<input name='tests[]' class='form-control' required>";
-                            cell2.innerHTML = "<input id='cuts' name='results[]' class='form-control' required>";
-
+                            cell1.innerHTML = "<input name='tests[]' class='form-control' value='"+name+"' required>";
+                            cell2.innerHTML = "<input id='cuts' name='results[]' class='form-control'  value='"+result+"' required>";
                         }
                         function scanToJpg() {
                             scanner.scan(displayImagesOnPage,
@@ -216,4 +229,63 @@
                     </script>
 
                 </div>
+
+            <!-- Modal -->
+            <div id="retrieveTestData" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Devlet Tetkik Arama</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Seçilmesi istenilen hastanın kimliğini giriniz.</p>
+                            <div class="form-group">
+                                <label for="height">Kimlik Numarası : </label>
+                                <input type="text" class="form-control" id="identity" name="identity">
+                            </div>
+                            <div class="form-group">
+                                <label for="height">Doğum Yılı : </label>
+                                <input type="text" class="form-control" id="birthYear" name="birthYear">
+                            </div>
+                            <div class="form-group">
+                                <label for="height">İşlem Numarası : </label>
+                                <input type="text" class="form-control" id="opNo" name="opNo">
+                            </div>
+
+                            <a class="btn btn-primary" onclick="retrieveData($('#identity').val(),$('#birthYear').val(),$('#opNo').val())">
+                                Tetkik Ara
+                            </a>
+
+                            <script>
+                                function retrieveData(identity, birthYear,opCode){
+                                    $.get("/retrieveData/"+identity+"/"+birthYear+"/"+opCode, function(data, status){
+                                        if (data != null){
+                                            var result = JSON.parse(data);
+                                            console.log(result);
+                                            jQuery.each(result, function(name, result) {
+                                                addTest(name,result);
+                                            });
+                                            swal('Başarılı!');
+                                            $('#retrieveTestData').modal('toggle');
+                                        }else{
+                                            swal('Başarısız, Lütfen tekrar deneyiniz!');
+                                        }
+                                    });
+                                }
+                            </script>
+
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Çıkış</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
 @endsection

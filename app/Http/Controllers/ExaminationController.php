@@ -60,13 +60,12 @@ class ExaminationController extends Controller
         $retVal = array();
         foreach ($xml->HASTA->TETKIKLER->TETKIK as $examination){
             foreach($examination->TEST as $test){
-                if(is_string((string)$test->TESTADI) && is_string((string)$test->SONUC))
+                if(is_string((string)$test->TESTADI) && is_string((string)$test->SONUC)
+                    && (string)$test->TESTADI != "" && (string)$test->SONUC != "")
                     $retVal[(string)$test->TESTADI] = (string)$test->SONUC;
             }
         }
-
-        dd($retVal);
-
+        return json_encode($retVal);
     }
 
 }
