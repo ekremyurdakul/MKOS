@@ -17,7 +17,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong style="font-size: large">Yeni Hasta Kaydı</strong></div>
 
-                    <form method="POST" action="/patients/create">
+
                     {{csrf_field()}}
                     <div class="panel-body">
                         @if (session('status'))
@@ -28,6 +28,8 @@
 
 
                                 <div class="col-md-6">
+                                    <form method="POST" action="/patients/create">
+                                        {{csrf_field()}}
 
                                     <div class="form-group">
                                         <label for="name">Dosya Numarası: </label>
@@ -98,7 +100,6 @@
                                         </textarea>
                                     </div>
                                 </div>
-
 
 
                     </div>

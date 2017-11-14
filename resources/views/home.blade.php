@@ -23,7 +23,7 @@
                                         <div class="row text-center" style="padding-bottom: 50px ; padding-top: 25px ;padding-left: 15px; height: 100%; width: 100%;">
                                             <div class="input-group" style="height: 100%; width: 100%;" >
 
-                                                <input style="height: 100%; width: 100%;" type="text" class="form-control" id="autocomplete"
+                                                <input style="height: 100%; width: 100%;" type="text" class="form-control" id="autocompletemain"
                                                        placeholder="Aramaya başlamak için hasta ismi veya soyismi yazınız">
                                             </div>
                                         </div>
@@ -72,7 +72,12 @@
                         }
                     }
                 });
-
+                $('#autocompletemain').autocomplete({
+                    serviceUrl: '/patients/search',
+                    onSelect: function (suggestion) {
+                        window.location.href = "{{ \Illuminate\Support\Facades\URL::to('/') }}" + "/patients/card/" + suggestion.data;
+                    }
+                });
             });
         </script>
 

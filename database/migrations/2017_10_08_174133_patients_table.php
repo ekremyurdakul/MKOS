@@ -19,7 +19,7 @@ class PatientsTable extends Migration
             $table->string('name');
             $table->string('surname');
             $table->string('gender');
-            $table->date('DOB');
+            $table->date('DOB')->nullable();
             $table->string('occupation')->nullable();
             $table->string('address')->nullable();
             $table->string('business_tel')->nullable();

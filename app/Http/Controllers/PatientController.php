@@ -66,6 +66,58 @@ class PatientController extends Controller
         return redirect('/home');
 
     }
+    public function edit(Request $request){
+
+        $request->validate([
+            'isim' => 'required|max:255',
+            'soyisim' => 'required|max:255',
+            'dogum_tarihi' => 'required|date',
+            'meslek' => 'max:255',
+            'adres' => 'max:255',
+            'is_tel' => 'max:255',
+            'ev_tel' => 'max:255',
+            'alerji' => 'max:255',
+            'not' => 'max:255',
+            'cinsiyet'=>'required'
+        ]);
+        $patient = Patient::find($request->patient_id);
+
+
+        if(count(Patient::where('document_no',$request->document_no)->get()) > 0 && $request->document_no != $patient->document_no){
+            Alert::error('Aynı dosya numarasında kayıt bulunmaktadır', 'Kayıt');
+
+            return redirect()->back()->withInput();
+        }
+        $payload = $request->all();
+
+        unset($payload['_token']);
+        unset($payload['patient_id']);
+
+        Patient::where('id',$request->patient_id)->update([
+            'document_no'=>$request->dosya_no,
+            'name'=>$request->isim,
+            'surname'=>$request->soyisim,
+            'DOB'=>$request->dogum_tarihi,
+            'occupation'=>$request->meslek,
+            'address'=>$request->adres,
+            'business_tel'=>$request->is_tel,
+            'home_tel'=>$request->ev_tel,
+            'allergy_info'=>$request->alerji,
+            'medicines'=>$request->ilaclar,
+            'history'=>$request->ozgecmis,
+            'notes'=>$request->notlar,
+            'gender'=>$request->cinsiyet,
+        ]);
+
+        Alert::success('Hasta bilgileri başarıyla güncellendi !', 'Kayıt');
+
+        return redirect()->back()->withInput();
+    }
+
+
+    public function card($id){
+        return view('patients.card')->with('patient',Patient::find($id));
+    }
 
     public function smartSearch(){
         $search   = array_pop($_GET);

@@ -62,6 +62,8 @@ class CreateExaminationsTable extends Migration
             $table->string('noro_femoral_sol')->nullable();
             $table->string('noro_notlar')->nullable();
             $table->string('tedavi')->nullable();
+
+            $table->string('completed')->default(0);
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->timestamps();
         });

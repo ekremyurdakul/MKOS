@@ -159,19 +159,19 @@
                                     <div class="panel-body">
                                         <div class="form-group col-md-4">
                                             <label for="height">SDS</label>
-                                            <input type="number" class="form-control" id="boy" name="solunum_sds">
+                                            <input type="text" class="form-control" id="boy" name="solunum_sds">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Toraks ins.</label>
-                                            <input type="number" class="form-control" id="boy" name="solunum_toraks_ins">
+                                            <input type="text" class="form-control" id="boy" name="solunum_toraks_ins">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Toraks Palpas.</label>
-                                            <input type="number" class="form-control" id="boy" name="solunum_toraks_palpas">
+                                            <input type="text" class="form-control" id="boy" name="solunum_toraks_palpas">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Perküsyon</label>
-                                            <input type="number" class="form-control" id="boy" name="solunum_perkusyon">
+                                            <input type="text" class="form-control" id="boy" name="solunum_perkusyon">
                                         </div>
                                     </div>
                                 </div>
@@ -189,23 +189,23 @@
                                     <div class="panel-body">
                                         <div class="form-group col-md-4">
                                             <label for="height">Periferik Nabızlar</label>
-                                            <input type="number" class="form-control" id="boy" name="kardiyo_periferik_nabz">
+                                            <input type="text" class="form-control" id="boy" name="kardiyo_periferik_nabz">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">NDS</label>
-                                            <input type="number" class="form-control" id="boy" name="kardiyo_nds">
+                                            <input type="text" class="form-control" id="boy" name="kardiyo_nds">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Palpasyon</label>
-                                            <input type="number" class="form-control" id="boy" name="kardiyo_palpasyon">
+                                            <input type="text" class="form-control" id="boy" name="kardiyo_palpasyon">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Oskültasyon</label>
-                                            <input type="number" class="form-control" id="boy" name="kardiyo_oskultasyon">
+                                            <input type="text" class="form-control" id="boy" name="kardiyo_oskultasyon">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Venüz Dolgunluk</label>
-                                            <input type="number" class="form-control" id="boy" name="kardiyo_venuz_dolgunluk">
+                                            <input type="text" class="form-control" id="boy" name="kardiyo_venuz_dolgunluk">
                                         </div>
                                     </div>
                                 </div>
@@ -223,23 +223,23 @@
                                     <div class="panel-body">
                                         <div class="form-group col-md-4">
                                             <label for="height">İnspeksiyon</label>
-                                            <input type="number" class="form-control" id="boy" name="gastro_inspeksiyon">
+                                            <input type="text" class="form-control" id="boy" name="gastro_inspeksiyon">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Tonsiller ve Faren</label>
-                                            <input type="number" class="form-control" id="boy" name="gastro_tonsiller">
+                                            <input type="text" class="form-control" id="boy" name="gastro_tonsiller">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Palpasyon</label>
-                                            <input type="number" class="form-control" id="boy" name="gastro_palpasyon">
+                                            <input type="text" class="form-control" id="boy" name="gastro_palpasyon">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Perküsyon</label>
-                                            <input type="number" class="form-control" id="boy" name="gastro_perkusyon">
+                                            <input type="text" class="form-control" id="boy" name="gastro_perkusyon">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Perküsyon</label>
-                                            <input type="number" class="form-control" id="boy" name="gastro_oskultasyon">
+                                            <input type="text" class="form-control" id="boy" name="gastro_oskultasyon">
                                         </div>
                                     </div>
                                 </div>
@@ -257,15 +257,15 @@
                                     <div class="panel-body">
                                         <div class="form-group col-md-4">
                                             <label for="height">İnspeksiyon</label>
-                                            <input type="number" class="form-control" id="boy" name="genito_kuntperk">
+                                            <input type="text" class="form-control" id="boy" name="genito_kuntperk">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Üreter Noktaları</label>
-                                            <input type="number" class="form-control" id="boy" name="genito_ureternoktalar">
+                                            <input type="text" class="form-control" id="boy" name="genito_ureternoktalar">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Suprapubik Böl.</label>
-                                            <input type="number" class="form-control" id="boy" name="genito_suprapubik">
+                                            <input type="text" class="form-control" id="boy" name="genito_suprapubik">
                                         </div>
                                     </div>
 
@@ -302,31 +302,31 @@
                                     <div class="panel-body">
                                         <div class="form-group col-md-4">
                                             <label for="height">Ense Sertliği</label>
-                                            <input type="number" class="form-control" id="boy" name="noro_ense_sertligi">
+                                            <input type="text" class="form-control" id="boy" name="noro_ense_sertligi">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Kernig Belirtisi</label>
-                                            <input type="number" class="form-control" id="boy" name="noro_kernig">
+                                            <input type="text" class="form-control" id="boy" name="noro_kernig">
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="height">Brudzinski Belirtisi</label>
-                                            <input type="number" class="form-control" id="boy" name="noro_bruzinski">
+                                            <input type="text" class="form-control" id="boy" name="noro_bruzinski">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="height">Lasegue (SAĞ)</label>
-                                            <input type="number" class="form-control" id="boy" name="noro_lasegue_sag">
+                                            <input type="text" class="form-control" id="boy" name="noro_lasegue_sag">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="height">Lasegue (SOL)</label>
-                                            <input type="number" class="form-control" id="boy" name="noro_lasegue_sol">
+                                            <input type="text" class="form-control" id="boy" name="noro_lasegue_sol">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="height">Femoral (SOL)</label>
-                                            <input type="number" class="form-control" id="boy" name="noro_femoral_sag">
+                                            <input type="text" class="form-control" id="boy" name="noro_femoral_sag">
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="height">Femoral (SOL)</label>
-                                            <input type="number" class="form-control" id="boy" name="noro_femoral_sol">
+                                            <input type="text" class="form-control" id="boy" name="noro_femoral_sol">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="name">Notlar</label>
@@ -344,6 +344,13 @@
                             <div class="form-group col-md-12">
                                 <label for="name">Ön Tanı ve Tedavi Bilgisi :  </label>
                                 <textarea style="resize: none"  class="form-control" id="tedavi" name="tedavi"></textarea>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 5px;padding-top: 15px; border: thin; border-color: #3d6983; font-size: 12pt">
+                            <strong style="font-size: 14pt; color: #222222">Bitirilsin mi ?</strong>
+                            <hr>
+                            <div class="form-group col-md-12">
+                                <input name="completed" style="width: 30px;height: 30px" type="checkbox">
                             </div>
                         </div>
             </div>

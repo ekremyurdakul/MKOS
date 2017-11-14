@@ -38,13 +38,42 @@ class ExaminationController extends Controller
         {
             $examination[$key] = $value;
         }
-
+        $examination['completed'] = isset($payload['completed']);
         $examination->save();
 
         Alert::success('Muayene ilgili hastaya eklenmiştir.', 'Kayıt');
-        //TODO redirect to patient card
-        return redirect('/home');
+
+        return redirect('/patients/card/'.$request->patient_id);
     }
+
+    public function edit($id){
+        $examination = Examination::find($id);
+
+        return view('examinations.edit_examination')->with([
+            'examination'=>$examination,
+        ]);
+    }
+
+    public function editPost(Request $request){
+
+
+        $payload = $request->all();
+        unset($payload['_token']);
+
+        $examination = Examination::find($request->examination_id);
+        unset($payload['examination_id']);
+        foreach ($payload as $key => $value)
+        {
+            $examination[$key] = $value;
+        }
+        $examination['completed'] = isset($payload['completed']);
+        $examination->save();
+
+        Alert::success('Muayene başarıyla güncellenmiştir.', 'Kayıt');
+        //TODO redirect to patient card
+        return redirect()->back();
+    }
+
 
     public function test(){
             $this->retrieveData('137799','1971','4521911');

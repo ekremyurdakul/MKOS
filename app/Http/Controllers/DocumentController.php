@@ -64,6 +64,7 @@ class DocumentController extends Controller
                 'location' => $db_path,
                 'document_id' => $document->id,
             ]);
+            $counter++;
         }
         $counter = 0;
         if($request->tests != null)
@@ -78,7 +79,14 @@ class DocumentController extends Controller
         }
 
         Alert::success('Döküman ilgili hastaya eklenmiştir.', 'Kayıt');
-        //TODO redirect to patient card
-        return redirect('/home');
+
+        return redirect('/patients/card/'.$request->patient_id);
+    }
+
+    public function inspect($id){
+
+        return view('inspect_tests')->with([
+            'document' => Document::find($id)
+        ]);
     }
 }

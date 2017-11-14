@@ -20,7 +20,7 @@ class CreateDocumentsTable extends Migration
             $table->unsignedInteger('patient_id');
             $table->unsignedInteger('document_type_id');
             $table->foreign('patient_id')->references('id')->on('patients');
-            $table->foreign('document_type_id')->references('id')->on('documents');
+            $table->foreign('document_type_id')->references('id')->on('document_types');
             $table->timestamps();
         });
     }
