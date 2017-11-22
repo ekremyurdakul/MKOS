@@ -30,7 +30,7 @@
 
                                         <div class="row text-center">
                                             <div class="col-md-4">
-                                                <a href="/patients/new" class=" btn btn-primary" style="height: inherit;width: 80%"> Müşteri Ekle</a>
+                                                <a href="/patients/new" class=" btn btn-primary" style="height: inherit;width: 80%"> Hasta Ekle</a>
                                             </div>
                                             <div class="col-md-4">
                                                 <button id="muayene" data-toggle="modal" data-target="#myModal" class=" btn btn-primary" style="height: inherit;width: 80%">Muayene Girişi</button>
