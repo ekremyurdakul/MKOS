@@ -1,0 +1,17 @@
+786 -- Undefined offset: 1
+2167 -- SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'C-4/41' for key 'patients_document_no_unique' (SQL: insert into `patients` (`document_no`, `name`, `surname`, `gender`, `updated_at`, `created_at`) values (C-4/41, CENNET, TUMAY, F, 2017-11-08 21:01:32, 2017-11-08 21:01:32))
+3644 -- Undefined offset: 1
+3920 -- Undefined offset: 1
+3938 -- Undefined offset: 1
+5101 -- SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'G-3/143' for key 'patients_document_no_unique' (SQL: insert into `patients` (`document_no`, `name`, `surname`, `gender`, `updated_at`, `created_at`) values (G-3/143, GÖKSEL, ATAKAN, F, 2017-11-08 21:01:37, 2017-11-08 21:01:37))
+5179 -- Undefined offset: 1
+5373 -- Undefined offset: 1
+7930 -- SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'M-8/66' for key 'patients_document_no_unique' (SQL: insert into `patients` (`document_no`, `name`, `surname`, `gender`, `updated_at`, `created_at`) values (M-8/66, MELİS, ÖZKARA, F, 2017-11-08 21:01:41, 2017-11-08 21:01:41))
+10141 -- Undefined offset: 1
+10581 -- Undefined offset: 1
+10581 -- Undefined offset: 1
+11025 -- Undefined offset: 1
+11442 -- SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'S-13/74' for key 'patients_document_no_unique' (SQL: insert into `patients` (`document_no`, `name`, `surname`, `gender`, `updated_at`, `created_at`) values (S-13/74, SEVDA, GÜLAŞLAR, F, 2017-11-08 21:01:46, 2017-11-08 21:01:46))
+12259 -- Undefined offset: 1
+12264 -- Undefined offset: 1
+12356 -- Undefined offset: 1
