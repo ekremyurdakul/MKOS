@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Document;
+use App\Examination;
 use App\Patient;
 use Illuminate\Http\Request;
 
@@ -114,7 +116,17 @@ class PatientController extends Controller
         return redirect()->back()->withInput();
     }
 
+    public function delete($id){
+        $patient = Patient::find($id);
+        Examination::where('patient_id',$patient->id)->delete();
+        Document::where('patient_id',$patient->id)->delete();
 
+        $patient->delete();
+
+        Alert::success('Hasta ve bilgileri başarıyla silindi !', 'Kayıt');
+
+        return redirect('home');
+    }
     public function card($id){
         return view('patients.card')->with('patient',Patient::find($id));
     }

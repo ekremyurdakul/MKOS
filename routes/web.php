@@ -24,9 +24,11 @@ Route::post('/patients/create', 'PatientController@create');
 Route::get('/patients/search', 'PatientController@smartSearch');
 Route::get('/patients/card/{id}', 'PatientController@card');
 Route::post('/patients/edit', 'PatientController@edit');
+Route::get('/patients/delete/{id}', 'PatientController@delete');
 
 Route::get('/examinations/new', 'ExaminationController@index');
 Route::post('/examinations/new', 'ExaminationController@create');
+Route::get('/examinations/delete/{id}', 'ExaminationController@delete');
 
 Route::get('/examinations/edit/{id}', 'ExaminationController@edit');
 Route::post('/examinations/edit', 'ExaminationController@editPost');
@@ -34,6 +36,7 @@ Route::post('/examinations/edit', 'ExaminationController@editPost');
 Route::get('/documents/inspect/{id}', 'DocumentController@inspect');
 Route::get('/documents/new', 'DocumentController@index');
 Route::post('/documents/new', 'DocumentController@create');
+Route::get('/documents/delete/{id}', 'DocumentController@delete');
 
 Route::get('/test', 'ExaminationController@test');
 Route::get('/retrieveData/{identity}/{birthYear}/{opNo}', 'ExaminationController@retrieveData');

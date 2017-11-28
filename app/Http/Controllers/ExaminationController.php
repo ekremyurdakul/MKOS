@@ -53,7 +53,13 @@ class ExaminationController extends Controller
             'examination'=>$examination,
         ]);
     }
+    public function delete($id){
+        Examination::find($id)->delete();
 
+        Alert::success('Muayene başarıyla silinmiştir', 'Kayıt');
+
+        return redirect()->back();
+    }
     public function editPost(Request $request){
 
 

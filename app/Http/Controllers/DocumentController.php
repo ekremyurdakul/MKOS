@@ -12,6 +12,7 @@ use Alert;
 
 use Illuminate\Support\Facades\Validator;
 use Mockery\Exception;
+use PhpParser\Comment\Doc;
 
 class DocumentController extends Controller
 {
@@ -81,6 +82,16 @@ class DocumentController extends Controller
         Alert::success('Döküman ilgili hastaya eklenmiştir.', 'Kayıt');
 
         return redirect('/patients/card/'.$request->patient_id);
+    }
+    public function delete($id){
+        $document = Document::find($id);
+        Test::where('document_id',$document->id)->delete();
+        Content::where('document_id',$document->id)->delete();
+        $document->delete();
+
+        Alert::success('Döküman başarıyla silinmiştir', 'Kayıt');
+
+        return redirect()->back();
     }
 
     public function inspect($id){

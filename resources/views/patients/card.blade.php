@@ -35,7 +35,7 @@
                                     <h3>İşlemler</h3>
                                     <a href="/examinations/new?patient_id={{$patient->id}}" style="width: 100%;margin-top: 10px" class="btn btn-primary">Muayene Ekle</a>
                                     <a href="/documents/new?patient_id={{$patient->id}}" style="width: 100%;margin-top: 10px" class="btn btn-primary">Tetkik/Döküman Ekle</a>
-                                    <a style="width: 100%;margin-top: 10px" class="btn btn-danger">Hasta Sil</a>
+                                    <a onclick="return confirm('Bu Hastayı silmek istediğinize emin misiniz ?');" href="/patient/delete/{{$patient->id}}" style="width: 100%;margin-top: 10px" class="btn btn-danger">Hasta Sil</a>
                                 </div>
                                 <div class="col-md-4">
                                     <form method="POST" action="/patients/edit">
@@ -128,6 +128,7 @@
                                             <th scope="col">Tarih</th>
                                             <th scope="col">Açıklama</th>
                                             <th scope="col"></th>
+                                            <th scope="col"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -137,6 +138,7 @@
                                                 <td>{{date('d-m-Y',strtotime($document->date))}}</td>
                                                 <td>{{$document->name}}</td>
                                                 <td><a onclick=" window.open( '@php echo url('documents/inspect/') . '/' . $document->id ; @endphp ', '_blank'); " class="btn btn-default">İncele</a></td>
+                                                <td><a href="/documents/delete/{{$document->id}}" class="btn btn-danger">Sil</a></td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -157,6 +159,7 @@
                                             <th scope="col">Şikayet</th>
                                             <th scope="col">Durum</th>
                                             <th scope="col"></th>
+                                            <th scope="col"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -167,6 +170,7 @@
                                                 <td>{{$examination->sikayet}}</td>
                                                 <td>{{ $examination->completed ? 'Tamamlandı' : 'Tamamlanmadı' }}</td>
                                                 <td><a onclick=" window.open( '@php echo url('examinations/edit/') . '/' . $examination->id ; @endphp ', '_blank'); " class="btn btn-default">İncele</a></td>
+                                                <td><a href="/examinations/delete/{{$examination->id}}" class="btn btn-danger">Sil</a></td>
                                             </tr>
                                         @endforeach
                                         </tbody>
@@ -185,6 +189,7 @@
                                             <th scope="col">Tarih</th>
                                             <th scope="col">Açıklama</th>
                                             <th scope="col"></th>
+                                            <th scope="col"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -194,6 +199,7 @@
                                                 <td>{{date('d-m-Y',strtotime($document->date))}}</td>
                                                 <td>{{$document->name}}</td>
                                                 <td><a onclick=" window.open( '@php echo url('documents/inspect/') . '/' . $document->id ; @endphp ', '_blank'); " class="btn btn-default">İncele</a></td>
+                                                <td><a href="/documents/delete/{{$document->id}}" class="btn btn-danger">Sil</a></td>
                                             </tr>
                                         @endforeach
                                         </tbody>
